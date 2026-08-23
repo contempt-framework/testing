@@ -1,0 +1,54 @@
+{
+    "name": "contempt/testing",
+    "description": "Deterministic fakes and assertions for testing Contempt applications without booting a runtime.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/contempt-framework/testing",
+    "require": {
+        "contempt/cache": "self.version",
+        "contempt/compiler": "self.version",
+        "contempt/container": "self.version",
+        "contempt/contracts": "self.version",
+        "contempt/core": "self.version",
+        "contempt/http": "self.version",
+        "contempt/kernel": "self.version",
+        "contempt/lock": "self.version",
+        "contempt/messaging": "self.version",
+        "contempt/transaction": "self.version",
+        "php": "^8.5",
+        "psr/clock": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpunit/phpunit": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contempt\\Testing\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Contempt\\Testing\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --memory-limit=1G --no-progress",
+        "test": "phpunit",
+        "qa": [
+            "@analyse",
+            "@test"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
